@@ -80,6 +80,8 @@ change **preview.cjs** file inside the .storybook directory too:
 ```js
 import { themes } from '@storybook/theming';
 
+import '../src/styles/global.css';
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
