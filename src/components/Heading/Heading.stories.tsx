@@ -18,17 +18,39 @@ export default {
   }
 } as Meta<HeadingProps>
 
-export const Default: StoryObj<HeadingProps> = {}
+export const Default: StoryObj<HeadingProps> = {
+  argTypes: {
+    asChild: {
+      table: {
+        disable: true
+      }
+    }
+  }
+}
 
 export const Small: StoryObj<HeadingProps> = {
   args: {
     size: 'sm'
+  },
+  argTypes: {
+    asChild: {
+      table: {
+        disable: true
+      }
+    }
   }
 }
 
 export const Large: StoryObj<HeadingProps> = {
   args: {
     size: 'lg'
+  },
+  argTypes: {
+    asChild: {
+      table: {
+        disable: true
+      }
+    }
   }
 }
 
