@@ -97,3 +97,99 @@ export const parameters = {
 ```
 
 **NOTE**: restart storybook
+
+### DEPLOY IN THE GITHUB PAGES
+This deploy was done on github pages using the "**storybook-deployer**" tool
+
+See more in https://github.com/storybookjs/storybook-deployer
+
+```bash
+# create a repository in your github
+
+# install storybook-deployer
+$ npm i @storybook/storybook-deployer --save-dev
+```
+
+in the **package.json** file, create the script like the example below:
+```json
+"scripts": {
+  "build-storybook": "build-storybook",
+  "deploy-storybook": "storybook-to-ghpages"
+  ...
+}
+```
+
+At the end of the file **./storybook/main.cjs** put this code:
+```js
+viteFinal: (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      config.base = '{{YOUR_REPO_NAME}}'
+    }
+
+    return config
+  }
+```
+
+the **./storybook/main.cjs** file should look like the example below:
+```js
+module.exports = {
+  "stories": [
+    "../src/**/*.stories.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions"
+  ],
+  "framework": "@storybook/react",
+  "core": {
+    "builder": "@storybook/builder-vite"
+  },
+  "features": {
+    "storyStoreV7": true
+  },
+  viteFinal: (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      config.base = '/design-system-lab-reactjs/'
+    }
+
+    return config
+  }
+}
+```
+
+###### Create workflow
+in the root directory create "**.github/workflows/deploy-docs.yml**", create this file like the example below:
+```yml
+name: Deploy Storybook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploy Storybook
+        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+```
