@@ -60,6 +60,9 @@ export function App() {
 ## install 
 $ npx sb init --builder @storybook/builder-vite --use-npm
 
+## install accessibility addon
+$ npm install @storybook/addon-a11y
+
 ## run storybook
 $ npm run storybook
 ```
@@ -94,6 +97,14 @@ export const parameters = {
     theme: themes.dark,
   },
 }
+```
+
+change **main.cjs** including line below in the **addons** section:
+```js
+  "addons": [
+    ...
+    "@storybook/addon-a11y"
+  ],
 ```
 
 **NOTE**: restart storybook
@@ -140,7 +151,8 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    "@storybook/addon-a11y"
   ],
   "framework": "@storybook/react",
   "core": {
