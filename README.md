@@ -1,5 +1,5 @@
 <div align="center" style="margin-bottom: 20px;">
-  <h1>soaresdev.com</h1>
+  <h1>Design System with React.js</h1>
   <p align="center">
       <img alt="technology" src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E">
       <img alt="technology" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
