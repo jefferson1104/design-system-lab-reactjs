@@ -11,7 +11,7 @@
 </div>
 
 ### About project
-A design system project, components to be reused in the construction of interfaces with the javascript library **React.js**, for the development of this design system tools such as figma, reactjs, storybook, tailwindcss and others were used.
+This project is a design system, where I developed a layout in the **Figma** tool using some **UI/UX** practices. In the development of the application I used **React.js** as the main library and **storybook**, I also used **TailWind CSS** which is a CSS structure based on utilities with several classes to create any design. Another important and interesting library I used was **Radix UI**, with primitive, accessible and unstyled components to create high quality design systems.
 
 ### Run project
 ```bash
