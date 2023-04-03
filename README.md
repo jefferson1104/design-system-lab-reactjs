@@ -10,6 +10,12 @@
   <img alt="soaresdev" src="./public/images/screenshots/screenshot-03.png" width="500" heigth="auto"/>
 </div>
 
+<div align="center" style="margin-bottom: 20px;">
+  <a href="https://jefferson1104.github.io/design-system-lab-reactjs" target="_blank">
+    https://jefferson1104.github.io/design-system-lab-reactjs
+  </a>
+</div>
+
 ### About project
 This project is a design system, where I developed a layout in the **Figma** tool using some **UI/UX** practices. In the development of the application I used **React.js** as the main library and **storybook**, I also used **TailWind CSS** which is a CSS structure based on utilities with several classes to create any design. Another important and interesting library I used was **Radix UI**, with primitive, accessible and unstyled components to create high quality design systems.
 
